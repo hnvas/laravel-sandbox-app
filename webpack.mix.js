@@ -15,7 +15,8 @@ mix.sass('resources/sass/app.scss', 'public/css')
     .js('resources/js/app.js', 'public/js')
     .scripts([
         'resources/js/scripts/global.js',
-    ], 'public/js/all.js');
+    ], 'public/js/all.js')
+    .copyDirectory('resources/img', 'public/img');
 
 if (mix.inProduction()) {
     mix.version();
