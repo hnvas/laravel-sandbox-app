@@ -9,12 +9,11 @@ try {
     window.$ = window.jQuery = require('jquery');
     window.swal = require('sweetalert2');
 
-    require('bootstrap');
+    require('material-dashboard/assets/js/core/bootstrap-material-design.min');
     require('moment');
     require('flatpickr');
     require('flatpickr/dist/l10n/pt');
     require('jquery-mask-plugin');
-    require('material-dashboard/assets/js/core/bootstrap-material-design.min');
     require('material-dashboard/assets/js/plugins/bootstrap-notify');
     require('material-dashboard/assets/js/plugins/chartist.min');
     require('material-dashboard/assets/js/plugins/perfect-scrollbar.jquery.min');
