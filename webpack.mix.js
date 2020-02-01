@@ -15,6 +15,7 @@ mix.sass('resources/sass/app.scss', 'public/css')
     .js('resources/js/app.js', 'public/js')
     .scripts([
         'resources/js/scripts/global.js',
+        'resources/js/scripts/notify.js',
     ], 'public/js/all.js')
     .copyDirectory('resources/img', 'public/img');
 

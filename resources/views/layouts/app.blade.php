@@ -19,9 +19,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    @include('layouts.sidebar')
+    @include('layouts._sidebar')
     <div id="app" class="main-panel">
-        @include('layouts.nav')
+        @include('layouts._nav')
 
         <main class="content">
             @yield('content')
@@ -37,9 +37,11 @@
                 </div>
             </div>
         </footer>
+        @include('layouts._notify')
     </div>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/all.js') }}"></script>
 </body>
 </html>

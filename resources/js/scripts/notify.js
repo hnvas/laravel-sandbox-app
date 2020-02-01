@@ -1,4 +1,3 @@
-
 $(function () {
     callNotification($('.bs-notify'));
 });
