@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Models\Core;
+namespace App\Models;
 
 use Spatie\Tags\Tag as SpatieTag;
 
