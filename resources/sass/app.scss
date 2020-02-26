@@ -1,11 +1,34 @@
-
 // Fonts
 @import '~material-design-icons/iconfont/material-icons.css';
 @import '~@fortawesome/fontawesome-free/css/all.css';
 
+//Variables
+@import 'variables';
 
-// Variables
+// Template
 @import '~material-dashboard/assets/scss/material-dashboard';
 
 //Datetime picker
-@import '~flatpickr/dist/flatpickr.css';
+@import '~flatpickr';
+
+//Bootstrapselect
+@import '~bootstrap-select/dist/css/bootstrap-select.css';
+
+.card .card-header-primary .card-icon,
+.card .card-header-primary .card-text,
+.card .card-header-primary:not(.card-header-icon):not(.card-header-text),
+.card.bg-primary, .card.card-rotate.bg-primary .front,
+.card.card-rotate.bg-primary .back {
+  background: linear-gradient(60deg, $teal-400, $teal-600) !important;
+}
+
+.btn-fab {
+  position: fixed !important;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.date-picker, .datetime-picker {
+  background-color: white !important;
+}

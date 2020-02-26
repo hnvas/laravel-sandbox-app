@@ -8,24 +8,19 @@ try {
     window.Popper = require('popper.js').default;
     window.$ = window.jQuery = require('jquery');
     window.swal = require('sweetalert2');
+    window.moment = require('moment');
 
     require('material-dashboard/assets/js/core/bootstrap-material-design.min');
-    require('moment');
-    require('flatpickr');
-    require('flatpickr/dist/l10n/pt');
     require('jquery-mask-plugin');
     require('material-dashboard/assets/js/plugins/bootstrap-notify');
     require('material-dashboard/assets/js/plugins/chartist.min');
     require('material-dashboard/assets/js/plugins/perfect-scrollbar.jquery.min');
     require('material-dashboard/assets/js/material-dashboard');
+    require('flatpickr');
+    require('flatpickr/dist/l10n/pt');
+    require('flatpickr/dist/themes/material_green.css');
+    require('bootstrap-select/dist/js/bootstrap-select')
 } catch (e) {}
-
-/**
- * Next we will register the CSRF Token as a common header so that
- * all outgoing HTTP requests can have it attached.
- */
-
-const token = document.head.querySelector('meta[name="csrf-token"]');
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

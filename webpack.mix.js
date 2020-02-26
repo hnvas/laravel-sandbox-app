@@ -14,8 +14,10 @@ const mix = require('laravel-mix');
 mix.sass('resources/sass/app.scss', 'public/css')
     .js('resources/js/app.js', 'public/js')
     .scripts([
-        'resources/js/scripts/global.js',
         'resources/js/scripts/notify.js',
+        'resources/js/scripts/datepicker.js',
+        'resources/js/scripts/selectpicker.js',
+        'resources/js/scripts/global.js',
     ], 'public/js/all.js')
     .copyDirectory('resources/img', 'public/img');
 

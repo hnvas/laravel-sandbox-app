@@ -1,10 +1,13 @@
 <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top">
+
     <div class="container-fluid">
+
         <div class="navbar-wrapper">
             <a class="navbar-brand"
                href="{{ url('/') }}">{{ config('app.name', 'Laravel') }}
             </a>
         </div>
+
         <button class="navbar-toggler"
                 type="button"
                 data-toggle="collapse"
@@ -17,11 +20,13 @@
             <span class="navbar-toggler-icon icon-bar"></span>
             <span class="navbar-toggler-icon icon-bar"></span>
         </button>
+
         <div class="collapse navbar-collapse justify-content-end"
              id="navbarSupportedContent">
+
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto">
-            </ul>
+            <ul class="navbar-nav mr-auto"></ul>
+
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
@@ -50,13 +55,14 @@
                                 Account
                             </p>
                         </a>
+
                         <div class="dropdown-menu dropdown-menu-right"
                              aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Profile</a>
+                            <a class="dropdown-item"
+                               href="#">Profile</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item"
-                               href="{{ route('logout') }}"
-                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                               onclick="logout()">
                                 {{ __('Logout') }}
                             </a>
                             <form id="logout-form"
@@ -69,6 +75,9 @@
                     </li>
                 @endguest
             </ul>
+
         </div>
+
     </div>
+
 </nav>
