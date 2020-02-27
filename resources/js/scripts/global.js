@@ -8,6 +8,8 @@ $(function () {
     $('.delete-resource').click(function (e) {
         e.preventDefault();
 
+        var element = $(this);
+
         swal.fire({
             title: 'Você tem certeza?',
             text: "Após excluir o registro não será possíve reverter.",
@@ -23,11 +25,11 @@ $(function () {
 
                 $.ajax({
                     method: 'DELETE',
-                    url: $(this).attr('href'),
+                    url: element.attr('href'),
                     success: function (response) {
 
                         showMessage('done', response.success, 'success');
-                        $(this).closest('tr').fadeOut();
+                        element.closest('tr').fadeOut();
 
                     }, error: function (response) {
 
