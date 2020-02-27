@@ -89,7 +89,7 @@ $(function () {
                     url: $(this).attr('href'),
                     success: function (response) {
 
-                        showMessage('done', response.message, 'success');
+                        showMessage('done', response.success, 'success');
                         $(this).closest('tr').fadeOut();
 
                     }, error: function (response) {

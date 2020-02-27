@@ -4,7 +4,7 @@
 
         <div class="navbar-wrapper">
             <a class="navbar-brand"
-               href="{{ url('/') }}">{{ config('app.name', 'Laravel') }}
+               href="{{ url('/admin') }}">{{ config('app.name', 'Laravel') }}
             </a>
         </div>
 
@@ -61,16 +61,10 @@
                             <a class="dropdown-item"
                                href="#">Profile</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item"
+                            <a class="dropdown-item logout"
                                onclick="logout()">
                                 {{ __('Logout') }}
                             </a>
-                            <form id="logout-form"
-                                  action="{{ route('logout') }}"
-                                  method="POST"
-                                  style="display: none;">
-                                @csrf
-                            </form>
                         </div>
                     </li>
                 @endguest

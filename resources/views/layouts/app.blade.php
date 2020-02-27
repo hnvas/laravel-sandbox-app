@@ -34,6 +34,12 @@
         </main>
 
         <footer class="footer">
+            <form id="logout-form"
+                  action="{{ route('logout') }}"
+                  method="POST"
+                  style="display: none;">
+                @csrf
+            </form>
             <div class="container-fluid">
                 <div class="copyright float-left">
                     © Henrique Vasconcelos,

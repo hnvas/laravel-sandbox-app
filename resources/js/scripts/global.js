@@ -48,5 +48,6 @@ function initAjax() {
 }
 
 function logout() {
-    event.preventDefault(); document.getElementById('logout-form').submit();
+    event.preventDefault();
+    document.getElementById('logout-form').submit();
 }
