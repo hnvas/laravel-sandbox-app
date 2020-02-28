@@ -13,9 +13,19 @@ class LoginTest extends TestCase
 
     private static $password = 'password';
 
+    private static function loginRoute()
+    {
+        return route('login');
+    }
+
+    private static function homeRoute()
+    {
+        return route('dashboard.index');
+    }
+
     public function testUserShouldViewLoginFormWhenNotAuthenticated()
     {
-        $response = $this->get('/login');
+        $response = $this->get(self::loginRoute());
 
         $response->assertSuccessful();
         $response->assertViewIs('auth.login');
@@ -25,9 +35,9 @@ class LoginTest extends TestCase
     {
         $user = factory(User::class)->make();
 
-        $response = $this->actingAs($user)->get('/login');
+        $response = $this->actingAs($user)->get(self::loginRoute());
 
-        $response->assertRedirect('/admin/dashboard');
+        $response->assertRedirect(self::homeRoute());
     }
 
     public function testUserShouldLoginWithCorrectCredentials()
@@ -36,12 +46,12 @@ class LoginTest extends TestCase
             ['password' => bcrypt(self::$password)]
         );
 
-        $response = $this->post('/login', [
+        $response = $this->post(self::loginRoute(), [
             'email'    => $user->email,
             'password' => self::$password,
         ]);
 
-        $response->assertRedirect('/admin/dashboard');
+        $response->assertRedirect(self::homeRoute());
         $this->assertAuthenticatedAs($user);
     }
 
@@ -51,12 +61,12 @@ class LoginTest extends TestCase
             ['password' => bcrypt(self::$password)]
         );
 
-        $response = $this->from('/login')->post('/login', [
+        $response = $this->from(self::loginRoute())->post(self::loginRoute(), [
             'email'    => $user->email,
             'password' => 'invalid-password',
         ]);
 
-        $response->assertRedirect('/login');
+        $response->assertRedirect(self::loginRoute());
         $response->assertSessionHasErrors('email');
         $this->assertTrue(session()->hasOldInput('email'));
         $this->assertFalse(session()->hasOldInput('password'));
@@ -70,7 +80,7 @@ class LoginTest extends TestCase
             'password' => bcrypt(self::$password),
         ]);
 
-        $response = $this->post('/login', [
+        $response = $this->post(self::loginRoute(), [
             'email'    => $user->email,
             'password' => self::$password,
             'remember' => 'on',
