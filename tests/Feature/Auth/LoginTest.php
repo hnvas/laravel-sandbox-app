@@ -13,7 +13,7 @@ class LoginTest extends TestCase
 
     private static $password = 'password';
 
-    public function testUserCanViewLoginForm()
+    public function testUserShouldViewLoginFormWhenNotAuthenticated()
     {
         $response = $this->get('/login');
 
@@ -21,7 +21,7 @@ class LoginTest extends TestCase
         $response->assertViewIs('auth.login');
     }
 
-    public function testUserCannotViewALoginFormWhenAuthenticated()
+    public function testUserShouldNotViewALoginFormWhenAuthenticated()
     {
         $user = factory(User::class)->make();
 
@@ -30,7 +30,7 @@ class LoginTest extends TestCase
         $response->assertRedirect('/admin/dashboard');
     }
 
-    public function testUserCanLoginWithCorrectCredentials()
+    public function testUserShouldLoginWithCorrectCredentials()
     {
         $user = factory(User::class)->create(
             ['password' => bcrypt(self::$password)]
@@ -45,7 +45,7 @@ class LoginTest extends TestCase
         $this->assertAuthenticatedAs($user);
     }
 
-    public function testUserCannotLoginWithIncorrectPassword()
+    public function testUserShouldNotLoginWithIncorrectPassword()
     {
         $user = factory(User::class)->create(
             ['password' => bcrypt(self::$password)]
@@ -63,7 +63,7 @@ class LoginTest extends TestCase
         $this->assertGuest();
     }
 
-    public function testRememberMeFunctionality()
+    public function testUserShouldBeRememberedWhenActivateRememberMe()
     {
         $user = factory(User::class)->create([
             'id'       => random_int(1, 100),
