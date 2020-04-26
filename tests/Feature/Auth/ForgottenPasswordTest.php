@@ -60,9 +60,7 @@ class ForgottenPasswordTest extends TestCase
     public function testEmailShouldBeValid()
     {
         $this->from(self::passwordRequestRoute())
-             ->post(self::passwordEmailRoute(), [
-                 'email' => 'invalid-email',
-             ])
+             ->post(self::passwordEmailRoute(), ['email' => 'invalid-email'])
              ->assertRedirect(self::passwordRequestRoute())
              ->assertSessionHasErrors('email');
     }
@@ -85,9 +83,7 @@ class ForgottenPasswordTest extends TestCase
         $user = factory(User::class)->make(['email' => 'nobody@example.com']);
 
         $this->from(self::passwordRequestRoute())
-             ->post(self::passwordEmailRoute(), [
-                 'email' => $user->email,
-             ])
+             ->post(self::passwordEmailRoute(), ['email' => $user->email])
              ->assertRedirect(self::passwordRequestRoute())
              ->assertSessionHasErrors('email');
 
@@ -184,7 +180,7 @@ class ForgottenPasswordTest extends TestCase
         $this->assertTrue(Hash::check(self::$password, $user->password));
     }
 
-    public function testUserBeUpdatedWhenPasswordAndEmailIsValid()
+    public function testShouldUserBeUpdatedWhenPasswordAndEmailIsValid()
     {
         $user = factory(User::class)->create([
             'password' => bcrypt(self::$password),
