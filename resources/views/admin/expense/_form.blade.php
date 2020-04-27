@@ -65,7 +65,7 @@
                    step=".01"
                    class="form-control"
                    name="amount"
-                   value="{{ old('amount', $expense->amount) }}"
+                   value="{{ old('amount', money($expense->amount)->formatByDecimal()) }}"
                    required
                    autocomplete="amount">
             @error('amount')
@@ -84,7 +84,7 @@
                    step=".01"
                    class="form-control"
                    name="discount"
-                   value="{{ old('discount', $expense->discount) }}"
+                   value="{{ old('discount', money($expense->discount)->formatByDecimal()) }}"
                    autocomplete="discount">
             @error('discount')
             <small id="discountHelp"
@@ -102,7 +102,7 @@
                    step=".01"
                    class="form-control"
                    name="fine"
-                   value="{{ old('fine', $expense->fine) }}"
+                   value="{{ old('fine', money($expense->fine)->formatByDecimal()) }}"
                    autocomplete="fine">
             @error('fine')
             <small id="fineHelp"

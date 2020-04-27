@@ -72,7 +72,7 @@ class ExpenseTest extends TestCase
     {
         $this->from(self::createExpenseRoute())
              ->post(self::storeExpenseRoute(), [
-                 'amount'      => $this->faker->randomFloat(2, 1),
+                 'amount'      => (string) $this->faker->randomFloat(2, 1),
                  'description' => 'Expense test creation',
                  'due_date'    => $this->faker->date(),
                  'issue_date'  => $this->faker->date(),
@@ -87,7 +87,7 @@ class ExpenseTest extends TestCase
 
         $this->from(self::editExpenseRoute($expense->id))
              ->put(self::updateExpenseRoute($expense->id), [
-                 'amount'      => $this->faker->randomFloat(2, 1),
+                 'amount'      => (string) $this->faker->randomFloat(2, 1),
                  'description' => 'Expense test creation',
                  'due_date'    => $this->faker->date(),
                  'issue_date'  => $this->faker->date(),

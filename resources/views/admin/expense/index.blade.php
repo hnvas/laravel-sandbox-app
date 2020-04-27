@@ -27,7 +27,7 @@
                                         <tr>
                                             <td>{{ $record->id }}</td>
                                             <td>{{ $record->description }}</td>
-                                            <td>{{ money_format('%n', $record->amount) }}</td>
+                                            <td>{{ money($record->amount) }}</td>
                                             <td>{{ $record->issue_date->format('d/m/Y') }}</td>
                                             <td class="td-actions text-right">
                                                 <a href="{{ route('expense.edit', $record->id) }}"

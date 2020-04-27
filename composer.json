@@ -1,5 +1,5 @@
 {
-    "name": "laravel/laravel",
+    "name": "vHenrique/personalApp",
     "type": "project",
     "description": "The Laravel Framework.",
     "keywords": [
@@ -9,10 +9,12 @@
     "license": "MIT",
     "require": {
         "php": "^7.1.3",
+        "cknow/laravel-money": "~3.8",
         "doctrine/dbal": "^2.10",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
+        "myclabs/php-enum": "^1.7",
         "spatie/laravel-tags": "^2.5"
     },
     "require-dev": {

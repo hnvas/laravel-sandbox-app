@@ -15,9 +15,9 @@ class CreateExpensesTable extends Migration
     {
         Schema::create('expenses', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->decimal('amount');
-            $table->decimal('fine')->default(0);
-            $table->decimal('discount')->default(0);
+            $table->bigInteger('amount');
+            $table->bigInteger('fine')->default(0);
+            $table->bigInteger('discount')->default(0);
             $table->string('description');
             $table->date('due_date');
             $table->date('issue_date');
