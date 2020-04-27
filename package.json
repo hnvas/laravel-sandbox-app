@@ -11,17 +11,17 @@
     },
     "devDependencies": {
         "bootstrap": "^4.0.0",
-        "jquery": "^3.2",
+        "jquery": "^3.5.0",
         "laravel-mix": "^4.0.7",
         "popper.js": "^1.12",
         "resolve-url-loader": "^2.3.1",
-        "sass": "^1.15.2",
+        "sass": "^1.26.5",
         "sass-loader": "^7.1.0",
         "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-free": "^5.12.0",
-        "bootstrap-select": "^1.13.12",
+        "@fortawesome/fontawesome-free": "^5.13.0",
+        "bootstrap-select": "^1.13.16",
         "flatpickr": "^4.6.3",
         "jquery-mask-plugin": "^1.14.16",
         "material-dashboard": "^2.1.0",
