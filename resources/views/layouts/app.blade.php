@@ -23,11 +23,11 @@
           rel="stylesheet">
 </head>
 <body>
-    @include('layouts.components._sidebar')
+    @include('layouts.shared._sidebar')
 
     <div id="app"
          class="main-panel">
-        @include('layouts.components._nav')
+        @include('layouts.shared._nav')
 
         <main class="content">
             @yield('content')
@@ -50,7 +50,7 @@
             </div>
         </footer>
 
-        @include('layouts.components._notify')
+        @include('layouts.shared._alert')
     </div>
 
     <!-- Scripts -->

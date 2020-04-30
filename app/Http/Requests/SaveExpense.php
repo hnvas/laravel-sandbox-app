@@ -43,7 +43,7 @@ class SaveExpense extends FormRequest
         return $rules;
     }
 
-    protected function validationData()
+    public function validationData()
     {
         $data = parent::validationData();
 

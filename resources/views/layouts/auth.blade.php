@@ -28,7 +28,7 @@
         <main class="content">
             @yield('content')
         </main>
-        @include('layouts.components._notify')
+        @include('layouts.shared._alert')
     </div>
 
     <!-- Scripts -->

@@ -1,136 +1,53 @@
-@csrf
 <div class="row">
     <div class="col-md-12">
-        <div class="form-group bmd-form-group">
-            <label class="bmd-label-floating">Descrição</label>
-            <input id="description"
-                   type="text"
-                   class="form-control"
-                   name="description"
-                   value="{{ old('description', $expense->description) }}"
-                   required
-                   autocomplete="description">
-            @error('description')
-            <small id="descriptionHelp"
-                   class="form-text text-muted text-danger">
-                {{ $message }}
-            </small>
-            @enderror
-        </div>
+        @include('components.fields.text', [
+                 'label'      => 'Descrição',
+                 'name'       => 'description',
+                 'attributes' => ['required' => true]])
     </div>
 </div>
 <div class="row">
     <div class="col-md-6">
-        <div class="form-group bmd-form-group">
-            <label class="bmd-label-floating">Data da cobrança</label>
-            <input id="issue_date"
-                   type="text"
-                   class="form-control date-picker"
-                   name="issue_date"
-                   value="{{ old('issue_date', $expense->issue_date) }}"
-                   required>
-            @error('issue_date')
-            <small id="issueDateHelp"
-                   class="form-text text-muted text-danger">
-                {{ $message }}
-            </small>
-            @enderror
-        </div>
+        @include('components.fields.date', [
+                 'label'      => 'Data da cobrança',
+                 'name'       => 'issue_date',
+                 'attributes' => ['required' => true]])
     </div>
     <div class="col-md-6">
-        <div class="form-group bmd-form-group">
-            <label class="bmd-label-floating">Data de vencimento</label>
-            <input id="due_date"
-                   type="text"
-                   class="form-control date-picker"
-                   name="due_date"
-                   value="{{ old('due_date', $expense->due_date) }}"
-                   required
-                   autocomplete="due_date">
-            @error('due_date')
-            <small id="dueDateHelp"
-                   class="form-text text-muted text-danger">
-                {{ $message }}
-            </small>
-            @enderror
-        </div>
+        @include('components.fields.date', [
+                 'label'      => 'Data de vencimento',
+                 'name'       => 'due_date',
+                 'attributes' => ['required' => true]])
     </div>
 </div>
 <div class="row">
     <div class="col-md-4">
-        <div class="form-group bmd-form-group">
-            <label class="bmd-label-floating">Valor</label>
-            <input id="amount"
-                   type="number"
-                   step=".01"
-                   class="form-control"
-                   name="amount"
-                   value="{{ old('amount', money($expense->amount)->formatByDecimal()) }}"
-                   required
-                   autocomplete="amount">
-            @error('amount')
-            <small id="amountHelp"
-                   class="form-text text-muted text-danger">
-                {{ $message }}
-            </small>
-            @enderror
-        </div>
+        @include('components.fields.number', [
+                 'label'      => 'Valor',
+                 'value'      => old('value', money($expense->amount)->formatByDecimal()),
+                 'name'       => 'amount',
+                 'attributes' => ['required' => true]])
     </div>
     <div class="col-md-4">
-        <div class="form-group bmd-form-group">
-            <label class="bmd-label-floating">Desconto</label>
-            <input id="discount"
-                   type="number"
-                   step=".01"
-                   class="form-control"
-                   name="discount"
-                   value="{{ old('discount', money($expense->discount)->formatByDecimal()) }}"
-                   autocomplete="discount">
-            @error('discount')
-            <small id="discountHelp"
-                   class="form-text text-muted text-danger">
-                {{ $message }}
-            </small>
-            @enderror
-        </div>
+        @include('components.fields.number', [
+                 'label'      => 'Desconto',
+                 'value'      => old('value', money($expense->discount)->formatByDecimal()),
+                 'name'       => 'discount'])
     </div>
     <div class="col-md-4">
-        <div class="form-group bmd-form-group">
-            <label class="bmd-label-floating">Multa</label>
-            <input id="fine"
-                   type="number"
-                   step=".01"
-                   class="form-control"
-                   name="fine"
-                   value="{{ old('fine', money($expense->fine)->formatByDecimal()) }}"
-                   autocomplete="fine">
-            @error('fine')
-            <small id="fineHelp"
-                   class="form-text text-muted text-danger">
-                {{ $message }}
-            </small>
-            @enderror
-        </div>
+        @include('components.fields.number', [
+                 'label'      => 'Multa',
+                 'value'      => old('value', money($expense->fine)->formatByDecimal()),
+                 'name'       => 'fine'])
     </div>
 </div>
 <div class="row">
     <div class="col-md-12">
-        <div class="form-group">
-            <select name="tags[]"
-                    class="form-control custom-select"
-                    multiple
-                    title="Selecione uma ou mais tags"
-                    data-selected="{{ $expense->tags->pluck('name') }}">
-                @foreach($tags as $tag)
-                    <option value="{{ $tag->name }}">{{ $tag->name }}</option>
-                @endforeach
-            </select>
-            @error('tags')
-            <small id="tagsHelp"
-                   class="form-text text-muted text-danger">
-                {{ $message }}
-            </small>
-            @enderror
-        </div>
+        @include('components.fields.multi-select', [
+             'label' => 'Selecione uma ou mais tags',
+             'name' => 'tags',
+             'collection' => $tags->pluck('name', 'name'),
+             'selected' => $expense->tags->pluck('name'),
+             ])
     </div>
 </div>

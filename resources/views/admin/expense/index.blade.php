@@ -4,16 +4,14 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header card-header-primary">
-                        <h4 class="card-title">Despesas</h4>
-                        <p class="card-category">Lista de despesas
-                            registradas</p>
-                    </div>
-                    <div class="card-body">
+                @component('components.card-container', [
+                            'return'   => 'dashboard.index',
+                            'title'    => 'Despesas',
+                            'category' => 'Listagem de despesas'])
+                    @slot('body')
                         <div class="table-responsive">
                             <table class="table">
-                                <thead class=" text-primary">
+                                <thead class="text-primary">
                                     <tr>
                                         <th>#</th>
                                         <th>Descrição</th>
@@ -56,14 +54,10 @@
                                 </tbody>
                             </table>
                         </div>
-                    </div>
-                </div>
+                    @endslot
+                @endcomponent
             </div>
         </div>
     </div>
-    <a href="{{ route('expense.create') }}"
-       class="btn btn-fab btn-lg btn-round btn-primary text-white"
-       type="button">
-        <i class="material-icons pmd-sm">add</i>
-    </a>
+    @include('components.buttons.new', ['route' => 'expense.create'])
 @endsection
