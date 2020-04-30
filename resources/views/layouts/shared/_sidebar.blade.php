@@ -65,6 +65,14 @@
                     <p>Despesas</p>
                 </a>
             </li>
+
+            <li class="nav-item {{ request()->is('admin/user*') ? 'active' : '' }}">
+                <a class="nav-link"
+                   href="{{ route('user.index') }}">
+                    <i class="material-icons">supervisor_account</i>
+                    <p>Usuários</p>
+                </a>
+            </li>
         </ul>
     </div>
 

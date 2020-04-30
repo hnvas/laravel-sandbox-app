@@ -1,0 +1,23 @@
+@extends('layouts.app')
+
+@section('content')
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                {{ Form::model($user, ['route' => ['user.update', $user->id], 'method' => 'put']) }}
+                    @component('components.card-container', [
+                                'return'   => 'user.index',
+                                'title'    => 'Usuários',
+                                'category' => 'Editar usuário'])
+                        @slot('body')
+                            @include('admin.user._form')
+                        @endslot
+                        @slot('footer')
+                            @include('components.buttons.success', ['title' => 'Enviar'])
+                        @endslot
+                    @endcomponent
+                {!! Form::close() !!}
+            </div>
+        </div>
+    </div>
+@endsection
