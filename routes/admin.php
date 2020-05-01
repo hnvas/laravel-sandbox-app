@@ -1,6 +1,6 @@
 <?php
 
-Route::middleware('auth')->namespace('Admin')->group(function (){
+Route::middleware(['auth', 'verified'])->namespace('Admin')->group(function (){
 
     Route::get('/', 'DashboardController@index');
 

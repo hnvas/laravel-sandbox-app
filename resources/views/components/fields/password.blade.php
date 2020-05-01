@@ -9,4 +9,10 @@
             {{ $message }}
         </small>
     @enderror
+    @if(!empty($resetLink) && Route::has('password.request'))
+        <a class="btn btn-link float-right"
+           href="{{ route('password.request') }}">
+            {{ __('Esqueceu sua senha?') }}
+        </a>
+    @endif
 </div>
