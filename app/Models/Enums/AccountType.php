@@ -5,9 +5,9 @@ namespace App\Models\Enums;
 
 use MyCLabs\Enum\Enum;
 
-class AccountTypes extends Enum
+class AccountType extends Enum
 {
-    CONST CURRENT = 'current';
+    CONST CHECKING = 'checking';
     CONST SAVING  = 'saving';
     CONST WALLET  = 'wallet';
 }

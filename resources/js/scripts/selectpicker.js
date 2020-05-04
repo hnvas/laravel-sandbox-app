@@ -7,7 +7,10 @@ function initSelectPicker(customSelector) {
         liveSearchStyle: "contains"
     });
 
-    customSelector.val($('select[class$="custom-select"]').data('selected'));
-    customSelector.selectpicker('refresh');
+    customSelector.each(function () {
+        $(this).val($(this).data('selected'));
+        $(this).selectpicker('refresh');
+    })
+
 
 }

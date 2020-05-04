@@ -2,8 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Enums\AccountTypes;
-use Cknow\Money\Money;
+use App\Models\Enums\AccountType;
 use DomainException;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,6 +14,7 @@ class Account extends Model
         'balance',
         'special_limit',
         'type',
+        'owner',
         'owner_id'
     ];
 
@@ -34,6 +34,16 @@ class Account extends Model
         return $this->belongsTo(User::class, 'owner_id');
     }
 
+    public function sourceTransactions()
+    {
+        return $this->morphMany(Transaction::class, 'source');
+    }
+
+    public function destinationTransactions()
+    {
+        return $this->morphMany(Transaction::class, 'destination');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | Mutators
@@ -49,7 +59,14 @@ class Account extends Model
 
     public function setTypeAttribute($value)
     {
-        $this->attributes['type'] = (new AccountTypes($value))->getValue();
+        $type = new AccountType(strtolower($value));
+
+        $this->attributes['type'] = $type->getValue();
+    }
+
+    public function setOwnerAttribute(User $owner)
+    {
+        $this->owner()->associate($owner);
     }
 
     /*

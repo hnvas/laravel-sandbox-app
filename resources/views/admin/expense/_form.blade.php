@@ -43,9 +43,10 @@
 </div>
 <div class="row">
     <div class="col-md-12">
-        @include('components.fields.multi-select', [
+        @include('components.fields.select', [
              'label' => 'Selecione uma ou mais tags',
              'name' => 'tags',
+             'multiple' => true,
              'collection' => $tags->pluck('name', 'name'),
              'selected' => $expense->tags->pluck('name'),
              ])

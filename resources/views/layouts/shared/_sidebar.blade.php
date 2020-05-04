@@ -66,6 +66,14 @@
                 </a>
             </li>
 
+            <li class="nav-item {{ request()->is('admin/account*') ? 'active' : '' }}">
+                <a class="nav-link"
+                   href="{{ route('account.index') }}">
+                    <i class="material-icons">account_balance</i>
+                    <p>Contas</p>
+                </a>
+            </li>
+
             <li class="nav-item {{ request()->is('admin/user*') ? 'active' : '' }}">
                 <a class="nav-link"
                    href="{{ route('user.index') }}">
