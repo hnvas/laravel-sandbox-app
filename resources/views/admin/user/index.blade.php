@@ -28,7 +28,7 @@
                                             <td>{{ $record->email }}</td>
                                             <td class="text-center">
                                                 <i class="material-icons">
-                                                    {{ empty($record->verified_at) ? 'check_box_outline_blank' : 'check_box' }}
+                                                    {{ empty($record->email_verified_at) ? 'check_box_outline_blank' : 'check_box' }}
                                                 </i>
                                             </td>
                                             <td class="td-actions text-right">
