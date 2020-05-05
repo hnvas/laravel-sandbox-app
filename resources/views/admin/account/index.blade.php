@@ -14,10 +14,10 @@
                                 <thead class="text-primary">
                                     <tr>
                                         <th>#</th>
-                                        <th>Nome</th>
-                                        <th>Saldo</th>
-                                        <th>Cheque especial</th>
-                                        <th>Titular</th>
+                                        <th>{{ trans('models.account.attributes.name') }}</th>
+                                        <th>{{ trans('models.account.attributes.balance') }}</th>
+                                        <th>{{ trans('models.account.attributes.special_limit') }}</th>
+                                        <th>{{ trans('models.account.attributes.owner') }}</th>
                                         <th></th>
                                     </tr>
                                 </thead>

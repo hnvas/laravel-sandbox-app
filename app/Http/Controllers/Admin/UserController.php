@@ -46,7 +46,7 @@ class UserController extends Controller
     {
         User::create($request->validated());
 
-        session()->flash('success', 'Registro criado com sucesso.');
+        session()->flash('success', trans('messages.created'));
 
         return redirect()->route('user.index');
     }
@@ -76,7 +76,7 @@ class UserController extends Controller
     {
         $user->fill($request->validated())->save();
 
-        session()->flash('success', 'Registro alterado com sucesso');
+        session()->flash('success', trans('messages.updated'));
 
         return redirect()->route('user.index');
     }
@@ -94,7 +94,7 @@ class UserController extends Controller
     {
         $user->delete();
 
-        $message = 'Registro excluido com sucesso.';
+        $message = trans('messages.deleted');
 
         if ($request->ajax()) {
             return response()->json(['success' => $message], 200);

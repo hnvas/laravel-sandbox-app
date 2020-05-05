@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SaveAccount;
 use App\Models\Account;
-use App\Models\Enums\AccountType;
+use App\Models\Types\AccountType;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
@@ -35,7 +35,7 @@ class AccountController extends Controller
     {
         return view('admin.account.create', [
             'account' => new Account,
-            'types'   => AccountType::values(),
+            'types'   => AccountType::transValues(),
             'owners'  => User::all()
         ]);
     }
@@ -50,7 +50,7 @@ class AccountController extends Controller
     {
         Account::create($request->validated());
 
-        session()->flash('success', 'Registro salvo com sucesso.');
+        session()->flash('success', trans('messages.created'));
 
         return redirect()->route('account.index');
     }
@@ -65,7 +65,7 @@ class AccountController extends Controller
     {
         return view('admin.account.edit', [
             'account' => $account,
-            'types'   => AccountType::values(),
+            'types'   => AccountType::transValues(),
             'owners'  => User::all()
         ]);
     }
@@ -81,7 +81,7 @@ class AccountController extends Controller
     {
         $account->fill($request->validated())->save();
 
-        session()->flash('success', 'Registro alterado com sucesso.');
+        session()->flash('success', trans('messages.updated'));
 
         return redirect()->route('account.index');
     }
@@ -99,7 +99,7 @@ class AccountController extends Controller
     {
         $account->delete();
 
-        $message = 'Registro excluido com sucesso.';
+        $message = trans('messages.deleted');
 
         if ($request->ajax()) {
             return response()->json(['success' => $message], 200);

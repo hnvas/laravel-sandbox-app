@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Enums\AccountType;
+use App\Models\Types\AccountType;
 use DomainException;
 use Illuminate\Database\Eloquent\Model;
 

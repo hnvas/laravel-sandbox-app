@@ -52,7 +52,7 @@ class ExpenseController extends Controller
 
         Expense::create($data);
 
-        session()->flash('success', 'Registro criado com sucesso.');
+        session()->flash('success', trans('messages.created'));
 
         return redirect()->route('expense.index');
     }
@@ -84,7 +84,7 @@ class ExpenseController extends Controller
 
         $expense->update($data);
 
-        session()->flash('success', 'Registro atualizado com sucesso.');
+        session()->flash('success', trans('messages.updated'));
 
         return redirect()->route('expense.index');
     }
@@ -102,7 +102,7 @@ class ExpenseController extends Controller
     {
         $expense->delete();
 
-        $message = 'Registro excluido com sucesso.';
+        $message = trans('messages.deleted');
 
         if ($request->ajax()) {
             return response()->json(['success' => $message], 200);

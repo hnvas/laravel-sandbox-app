@@ -12,5 +12,4 @@ function initSelectPicker(customSelector) {
         $(this).selectpicker('refresh');
     })
 
-
 }
