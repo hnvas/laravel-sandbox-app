@@ -3,13 +3,14 @@
 
 namespace App\Helpers;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use MyCLabs\Enum\Enum;
 
 class Translate
 {
 
-    public static function model($model)
+    public static function model(Model $model)
     {
        $modelClass = Str::snake(class_basename(
            is_object($model) ? get_class($model) : $model

@@ -14,9 +14,9 @@
                                 <thead class="text-primary">
                                     <tr>
                                         <th>#</th>
-                                        <th>Descrição</th>
-                                        <th>Valor</th>
-                                        <th>Data</th>
+                                        <th>{{ trans('models.expense.description') }}</th>
+                                        <th>{{ trans('models.expense.amount') }}</th>
+                                        <th>{{ trans('models.expense.issue_date') }}</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -53,6 +53,11 @@
                                     @endforelse
                                 </tbody>
                             </table>
+                        </div>
+                    @endslot
+                    @slot('footer')
+                        <div class="ml-auto">
+                            {{ $records->render() }}
                         </div>
                     @endslot
                 @endcomponent

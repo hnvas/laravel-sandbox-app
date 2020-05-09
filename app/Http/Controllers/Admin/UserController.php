@@ -19,7 +19,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $records = User::all();
+        $records = User::paginate(20);
 
         return view('admin.user.index', compact('records'));
     }

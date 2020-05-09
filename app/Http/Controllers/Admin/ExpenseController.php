@@ -22,7 +22,7 @@ class ExpenseController extends Controller
      */
     public function index()
     {
-        $records = Expense::all();
+        $records = Expense::paginate(20);
 
         return view('admin.expense.index', compact('records'));
     }

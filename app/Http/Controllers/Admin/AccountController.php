@@ -21,7 +21,7 @@ class AccountController extends Controller
      */
     public function index()
     {
-        $records = Account::all();
+        $records = Account::paginate(20);
 
         return view('admin.account.index', compact('records'));
     }
@@ -35,7 +35,7 @@ class AccountController extends Controller
     {
         return view('admin.account.create', [
             'account' => new Account,
-            'types'   => AccountType::transValues(),
+            'types'   => AccountType::values(),
             'owners'  => User::all()
         ]);
     }
@@ -65,7 +65,7 @@ class AccountController extends Controller
     {
         return view('admin.account.edit', [
             'account' => $account,
-            'types'   => AccountType::transValues(),
+            'types'   => AccountType::values(),
             'owners'  => User::all()
         ]);
     }

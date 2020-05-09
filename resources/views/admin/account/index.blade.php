@@ -14,10 +14,10 @@
                                 <thead class="text-primary">
                                     <tr>
                                         <th>#</th>
-                                        <th>{{ trans('models.account.attributes.name') }}</th>
-                                        <th>{{ trans('models.account.attributes.balance') }}</th>
-                                        <th>{{ trans('models.account.attributes.special_limit') }}</th>
-                                        <th>{{ trans('models.account.attributes.owner') }}</th>
+                                        <th>{{ trans('models.account.name') }}</th>
+                                        <th>{{ trans('models.account.balance') }}</th>
+                                        <th>{{ trans('models.account.special_limit') }}</th>
+                                        <th>{{ trans('models.account.owner') }}</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -55,6 +55,11 @@
                                     @endforelse
                                 </tbody>
                             </table>
+                        </div>
+                    @endslot
+                    @slot('footer')
+                        <div class="ml-auto">
+                            {{ $records->render() }}
                         </div>
                     @endslot
                 @endcomponent

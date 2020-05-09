@@ -14,9 +14,9 @@
                                 <thead class="text-primary">
                                     <tr>
                                         <th>#</th>
-                                        <th>Nome</th>
-                                        <th>Email</th>
-                                        <th class="text-center">Verificado</th>
+                                        <th>{{ trans('models.user.name') }}</th>
+                                        <th>{{ trans('models.user.email') }}</th>
+                                        <th class="text-center">{{ trans('models.user.verified_at') }}</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -50,11 +50,18 @@
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="5">Nenhum registro encontrado </td>
+                                            <td colspan="5">Nenhum registro
+                                                encontrado
+                                            </td>
                                         </tr>
                                     @endforelse
                                 </tbody>
                             </table>
+                        </div>
+                    @endslot
+                    @slot('footer')
+                        <div class="ml-auto">
+                            {{ $records->render() }}
                         </div>
                     @endslot
                 @endcomponent
