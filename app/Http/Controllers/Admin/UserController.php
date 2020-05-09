@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\DTOs\UserData;
 use App\Http\Requests\SaveUser;
 use App\Models\User;
 use Exception;
@@ -44,7 +45,9 @@ class UserController extends Controller
      */
     public function store(SaveUser $request)
     {
-        User::create($request->validated());
+        $data = UserData::fromRequest($request);
+
+        User::create($data->toArray());
 
         session()->flash('success', trans('messages.created'));
 
@@ -74,7 +77,9 @@ class UserController extends Controller
      */
     public function update(SaveUser $request, User $user)
     {
-        $user->fill($request->validated())->save();
+        $data = UserData::fromRequest($request);
+
+        $user->update($data->toArray());
 
         session()->flash('success', trans('messages.updated'));
 

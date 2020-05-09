@@ -16,6 +16,7 @@
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^6.1",
         "myclabs/php-enum": "^1.7",
+        "spatie/data-transfer-object": "^1.13",
         "spatie/laravel-tags": "^2.5"
     },
     "require-dev": {

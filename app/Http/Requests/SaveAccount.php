@@ -26,20 +26,10 @@ class SaveAccount extends FormRequest
     {
         return [
             'name'          => 'required|string',
-            'balance'       => 'required|integer',
-            'special_limit' => 'required|integer',
+            'balance'       => 'required|numeric',
+            'special_limit' => 'required|numeric',
             'type'          => 'required',
             'owner_id'      => 'required'
         ];
-    }
-
-    public function validationData()
-    {
-        $data = parent::validationData();
-
-        return array_merge($data, [
-            'balance'       => Money::parseByDecimal($data['balance'], 'USD')->getAmount(),
-            'special_limit' => Money::parseByDecimal($data['special_limit'], 'USD')->getAmount(),
-        ]);
     }
 }

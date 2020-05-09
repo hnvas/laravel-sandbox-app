@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Tags\HasTags;
 
@@ -25,4 +26,26 @@ class Expense extends Model
         'created_at',
         'updated_at'
     ];
+
+    /*
+    |--------------------------------------------------------------------------
+    | Mutators
+    |--------------------------------------------------------------------------
+    */
+
+    /**
+     * @param \Carbon\Carbon $date
+     */
+    public function setDueDateAttribute(Carbon $date)
+    {
+        $this->attributes['due_date'] = $date->format('Y-m-d');
+    }
+
+    /**
+     * @param \Carbon\Carbon $date
+     */
+    public function setIssueDateAttribute(Carbon $date)
+    {
+        $this->attributes['issue_date'] = $date->format('Y-m-d');
+    }
 }

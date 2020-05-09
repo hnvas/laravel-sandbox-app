@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\DTOs\AccountData;
 use App\Http\Requests\SaveAccount;
 use App\Models\Account;
 use App\Models\Types\AccountType;
@@ -48,7 +49,9 @@ class AccountController extends Controller
      */
     public function store(SaveAccount $request)
     {
-        Account::create($request->validated());
+        $data = AccountData::fromRequest($request);
+
+        Account::create($data->toArray());
 
         session()->flash('success', trans('messages.created'));
 
@@ -79,7 +82,9 @@ class AccountController extends Controller
      */
     public function update(SaveAccount $request, Account $account)
     {
-        $account->fill($request->validated())->save();
+        $data = AccountData::fromRequest($request);
+
+        $account->update($data->toArray());
 
         session()->flash('success', trans('messages.updated'));
 

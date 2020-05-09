@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\DTOs\ExpenseData;
 use App\Http\Requests\SaveExpense;
 use App\Models\Expense;
 use App\Models\Tag;
@@ -44,13 +45,15 @@ class ExpenseController extends Controller
      * Store a newly created resource in storage.
      *
      * @param SaveExpense $request
+     *
      * @return RedirectResponse
+     * @throws \Exception
      */
     public function store(SaveExpense $request)
     {
-        $data = $request->validated();
+        $data = ExpenseData::fromRequest($request);
 
-        Expense::create($data);
+        Expense::create($data->toArray());
 
         session()->flash('success', trans('messages.created'));
 
@@ -76,13 +79,15 @@ class ExpenseController extends Controller
      *
      * @param SaveExpense $request
      * @param Expense $expense
+     *
      * @return RedirectResponse
+     * @throws \Exception
      */
     public function update(SaveExpense $request, Expense $expense)
     {
-        $data = $request->validated();
+        $data = ExpenseData::fromRequest($request);
 
-        $expense->update($data);
+        $expense->update($data->toArray());
 
         session()->flash('success', trans('messages.updated'));
 
