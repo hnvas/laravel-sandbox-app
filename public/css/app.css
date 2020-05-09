@@ -25921,6 +25921,24 @@ span.flatpickr-weekday {
   background: linear-gradient(60deg, #26a69a, #00897b) !important;
 }
 
+.pagination .page-item .page-link {
+  border-radius: 25px;
+  color: #00897b;
+}
+
+.pagination .page-item .page-link:hover {
+  color: #26a69a;
+}
+
+.pagination .page-item.disabled {
+  color: #6c757d;
+}
+
+.pagination .page-item.active > .page-link {
+  color: white;
+  background-color: #00897b;
+}
+
 .btn-fab {
   position: fixed !important;
   bottom: 20px;

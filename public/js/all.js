@@ -62,7 +62,6 @@ function initSelectPicker(customSelector) {
         $(this).selectpicker('refresh');
     })
 
-
 }
 $(function () {
     initAjax();

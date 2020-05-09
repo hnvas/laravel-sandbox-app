@@ -14,6 +14,7 @@
 //Bootstrapselect
 @import '~bootstrap-select/dist/css/bootstrap-select.css';
 
+// Material Dashboard card-primary color override
 .card .card-header-primary .card-icon,
 .card .card-header-primary .card-text,
 .card .card-header-primary:not(.card-header-icon):not(.card-header-text),
@@ -22,6 +23,29 @@
   background: linear-gradient(60deg, $teal-400, $teal-600) !important;
 }
 
+// Bootstrap pagination style override
+.pagination .page-item {
+
+  .page-link {
+    border-radius: 25px;
+    color: $teal-600;
+
+    &:hover {
+      color: $teal-400;
+    }
+  }
+
+  &.disabled {
+    color: #6c757d;
+  }
+
+  &.active > .page-link {
+    color: white;
+    background-color: $teal-600;
+  }
+}
+
+
 .btn-fab {
   position: fixed !important;
   bottom: 20px;
@@ -29,10 +53,12 @@
   z-index: 10;
 }
 
+// Flatpicker background override
 .date-picker, .datetime-picker {
   background-color: white !important;
 }
 
+// Style of sidebar user menu
 .sidebar {
 
   .user {
