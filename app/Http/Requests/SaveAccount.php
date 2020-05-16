@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use Cknow\Money\Money;
 use Illuminate\Foundation\Http\FormRequest;
 
 class SaveAccount extends FormRequest
@@ -27,7 +26,6 @@ class SaveAccount extends FormRequest
         return [
             'name'          => 'required|string',
             'balance'       => 'required|numeric',
-            'special_limit' => 'required|numeric',
             'type'          => 'required',
             'owner_id'      => 'required'
         ];

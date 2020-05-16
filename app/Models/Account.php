@@ -13,7 +13,6 @@ class Account extends Model
     protected $fillable = [
         'name',
         'balance',
-        'special_limit',
         'type',
         'owner',
         'owner_id'
@@ -61,20 +60,6 @@ class Account extends Model
     */
 
     /**
-     * @param int $value
-     *
-     * @throws \UnexpectedValueException
-     */
-    public function setBalanceAttribute(int $value)
-    {
-        $this->attributes['balance'] = $value;
-
-        if ($this->invalidBalance()) {
-            throw new UnexpectedValueException('Special limit of account has been exceeded');
-        }
-    }
-
-    /**
      * @param \App\Models\Types\AccountType $type
      */
     public function setTypeAttribute(AccountType $type)
@@ -106,21 +91,5 @@ class Account extends Model
         if ($value) {
             return new AccountType($value);
         }
-    }
-
-    /*
-    |--------------------------------------------------------------------------
-    | Instance methods
-    |--------------------------------------------------------------------------
-    */
-
-    /**
-     * Compares account special limit with current balance
-     *
-     * @return bool
-     */
-    private function invalidBalance(): bool
-    {
-        return $this->balance < ($this->special_limit * -1);
     }
 }

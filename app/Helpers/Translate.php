@@ -10,7 +10,7 @@ use MyCLabs\Enum\Enum;
 class Translate
 {
 
-    public static function model(Model $model)
+    public static function model(Model $model) : object
     {
        $modelClass = Str::snake(class_basename(
            is_object($model) ? get_class($model) : $model
@@ -19,7 +19,7 @@ class Translate
        return (object) trans("models.$modelClass");
     }
 
-    public static function enum(Enum $type)
+    public static function enum(Enum $type) : array
     {
         $class = Str::snake(class_basename(get_class($type)));
 

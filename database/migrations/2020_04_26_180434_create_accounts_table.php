@@ -17,7 +17,6 @@ class CreateAccountsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->bigInteger('balance');
-            $table->bigInteger('special_limit');
             $table->string('type');
             $table->unsignedBigInteger('owner_id')->index();
             $table->foreign('owner_id')->references('id')

@@ -23,17 +23,11 @@
                  'attributes' => ['required' => true]])
     </div>
     <div class="col-md-4">
-        @include('components.fields.number', [
-                 'label' => trans('models.account.special_limit'),
-                 'value' => old('special_limit', money($account->special_limit)->formatByDecimal()),
-                 'name'  => 'special_limit'])
-    </div>
-    <div class="col-md-4">
         @include('components.fields.select', [
              'label'      => trans('models.account.type'),
              'name'       => 'type',
-             'collection' => $types,
-             'selected'   => old('type', array_search($account->type, $types)),
+             'collection' => Translate::enum($account->type),
+             'selected'   => old('type', $account->type->getKey()),
              'attributes' => ['required' => true]])
     </div>
 </div>

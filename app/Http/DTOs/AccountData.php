@@ -18,9 +18,6 @@ class AccountData extends DataTransferObject
     /** @var int */
     public $balance;
 
-    /** @var int */
-    public $special_limit;
-
     /** @var \App\Models\Types\AccountType */
     public $type;
 
