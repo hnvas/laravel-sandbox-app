@@ -47,13 +47,8 @@ class ExpenseTest extends TestCase
     public function testUserShouldCreateAnExpense()
     {
         $this->from(self::createRoute())
-             ->post(self::storeRoute(), [
-                 'amount'      => (string) $this->faker->randomFloat(2, 1),
-                 'description' => 'Expense test creation',
-                 'due_date'    => $this->faker->date(),
-                 'issue_date'  => $this->faker->date(),
-                 'tags'        => [$this->faker->word()]
-             ])->assertRedirect(self::indexRoute())
+             ->post(self::storeRoute(), $this->expenseData())
+             ->assertRedirect(self::indexRoute())
              ->assertSessionHas('success');
     }
 
@@ -62,13 +57,19 @@ class ExpenseTest extends TestCase
         $expense = factory(Expense::class)->create();
 
         $this->from(self::editRoute($expense->id))
-             ->put(self::updateRoute($expense->id), [
-                 'amount'      => (string) $this->faker->randomFloat(2, 1),
-                 'description' => 'Expense test creation',
-                 'due_date'    => $this->faker->date(),
-                 'issue_date'  => $this->faker->date(),
-                 'tags'        => [$this->faker->word()]
-             ])->assertRedirect(self::indexRoute())
+             ->put(self::updateRoute($expense->id), $this->expenseData())
+             ->assertRedirect(self::indexRoute())
              ->assertSessionHas('success');
+    }
+
+    private function expenseData()
+    {
+        return [
+            'amount'      => (string)$this->faker->randomFloat(2, 1),
+            'description' => 'Expense test creation',
+            'due_date'    => $this->faker->date(),
+            'issue_date'  => $this->faker->date(),
+            'tags'        => [$this->faker->word()]
+        ];
     }
 }

@@ -55,12 +55,8 @@ class AccountTest extends TestCase
     public function testUserShouldCreateAnAccount()
     {
         $this->from(self::createRoute())
-             ->post(self::storeRoute(), [
-                 'name'     => $this->faker->word(),
-                 'balance'  => (string)$this->faker->randomFloat(2, 1),
-                 'kind'     => AccountKind::CHECKING,
-                 'owner_id' => $this->user->id
-             ])->assertRedirect(self::indexRoute())
+             ->post(self::storeRoute(), $this->accountData())
+             ->assertRedirect(self::indexRoute())
              ->assertSessionHas('success');
     }
 
@@ -69,12 +65,18 @@ class AccountTest extends TestCase
         $account = factory(Account::class)->create();
 
         $this->from(self::editRoute($account->id))
-             ->put(self::updateRoute($account->id), [
-                 'name'     => $this->faker->word(),
-                 'balance'  => (string)$this->faker->randomFloat(2, 1),
-                 'kind'     => AccountKind::WALLET,
-                 'owner_id' => $this->user->id
-             ])->assertRedirect(self::indexRoute())
+             ->put(self::updateRoute($account->id), $this->accountData())
+             ->assertRedirect(self::indexRoute())
              ->assertSessionHas('success');
+    }
+
+    private function accountData()
+    {
+        return [
+            'name'     => $this->faker->word(),
+            'balance'  => (string)$this->faker->randomFloat(2, 1),
+            'kind'     => strtolower(array_rand(AccountKind::toArray(), 1)),
+            'owner_id' => $this->user->id
+        ];
     }
 }
