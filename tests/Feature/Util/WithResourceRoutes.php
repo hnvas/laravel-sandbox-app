@@ -30,16 +30,16 @@ trait WithResourceRoutes
 
     protected function editRoute($id)
     {
-        return route("$this->resource.edit", ['expense' => $id]);
+        return route("$this->resource.edit", [$this->resource => $id]);
     }
 
     protected function updateRoute($id)
     {
-        return route("$this->resource.update", ['expense' => $id]);
+        return route("$this->resource.update", [$this->resource => $id]);
     }
 
     protected function deleteRoute($id)
     {
-        return route("$this->resource.delete", ['expense' => $id]);
+        return route("$this->resource.delete", [$this->resource => $id]);
     }
 }

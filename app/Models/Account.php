@@ -57,7 +57,7 @@ class Account extends Model
      */
     public function setKindAttribute(AccountKind $type): void
     {
-        $this->attributes['type'] = $type->getValue();
+        $this->attributes['kind'] = $type->getValue();
     }
 
     /**

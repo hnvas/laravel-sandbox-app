@@ -3,6 +3,7 @@
 
 namespace App\Http\DTOs;
 
+use App\Helpers\Translate;
 use App\Http\Requests\SaveAccount;
 use App\Models\Kinds\AccountKind;
 use App\Models\User;
@@ -19,7 +20,7 @@ class AccountData extends DataTransferObject
     public $balance;
 
     /** @var \App\Models\Kinds\AccountKind */
-    public $type;
+    public $kind;
 
     /** @var \App\Models\User */
     public $owner;
@@ -33,9 +34,8 @@ class AccountData extends DataTransferObject
     {
         return new self([
             'name'          => $request->input('name'),
-            'balance'       => (int) Money::parseByDecimal($request->input('balance'), 'USD')->getAmount(),
-            'special_limit' => (int) Money::parseByDecimal($request->input('special_limit'), 'USD')->getAmount(),
-            'type'          => new AccountKind(strtolower($request->input('type'))),
+            'balance'       => Translate::moneyToInt($request->input('balance')),
+            'kind'          => new AccountKind(strtolower($request->input('kind'))),
             'owner'         => User::find($request->input('owner_id'))
         ]);
     }

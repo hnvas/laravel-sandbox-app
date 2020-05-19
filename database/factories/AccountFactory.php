@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Account;
+use App\Models\Kinds\AccountKind;
 use App\Models\User;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
@@ -9,11 +10,12 @@ use Illuminate\Database\Eloquent\Factory;
 $factory->define(Account::class, function (Faker $faker) {
 
     $owner = factory(User::class)->create();
+    $kind = strtolower(array_rand(AccountKind::values(), 1));
 
     return [
-        'name'           => 'Test account',
-        'balance'        => $faker->randomFloat(2, 0, 10000),
-        'special_limit'  => $faker->randomFloat(2, 0, 1000),
-        'owner'          => $owner
+        'name'     => 'Test account',
+        'balance'  => $faker->randomNumber(),
+        'kind'     => new AccountKind($kind),
+        'owner_id' => $owner
     ];
 });
