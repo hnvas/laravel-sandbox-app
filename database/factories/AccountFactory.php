@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factory;
 /** @var Factory $factory */
 $factory->define(Account::class, function (Faker $faker) {
 
-    $owner = factory(User::class)->make();
+    $owner = factory(User::class)->create();
 
     return [
         'name'           => 'Test account',

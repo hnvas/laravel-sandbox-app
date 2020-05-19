@@ -12,8 +12,8 @@ $factory->define(Expense::class, function (Faker $faker) {
         'fine'        => $faker->randomNumber(5),
         'discount'    => $faker->randomNumber(5),
         'description' => 'Expense test creation',
-        'due_date'    => $faker->date(),
-        'issue_date'  => $faker->date(),
-        'tags'        => [Tag::first()->name]
+        'due_date'    => new \Carbon\Carbon($faker->date()),
+        'issue_date'  => new \Carbon\Carbon($faker->date()),
+        'tags'        => ['Test']
     ];
 });

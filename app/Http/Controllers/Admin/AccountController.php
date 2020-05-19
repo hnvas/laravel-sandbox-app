@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\DTOs\AccountData;
 use App\Http\Requests\SaveAccount;
 use App\Models\Account;
-use App\Models\Types\AccountType;
+use App\Models\Kinds\AccountKind;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
@@ -36,7 +36,7 @@ class AccountController extends Controller
     {
         return view('admin.account.create', [
             'account' => new Account,
-            'types'   => AccountType::values(),
+            'kinds'   => AccountKind::class,
             'owners'  => User::all()
         ]);
     }
@@ -68,7 +68,7 @@ class AccountController extends Controller
     {
         return view('admin.account.edit', [
             'account' => $account,
-            'types'   => AccountType::values(),
+            'kinds'   => AccountKind::class,
             'owners'  => User::all()
         ]);
     }

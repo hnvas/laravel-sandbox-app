@@ -5,7 +5,7 @@ return [
         'name'          => 'Nome',
         'balance'       => 'Saldo',
         'special_limit' => 'Limite especial',
-        'type'          => 'Tipo',
+        'kind'          => 'Tipo',
         'owner'         => 'Titular',
         'created_at'    => 'Criação',
         'updated_at'    => 'Edição'
@@ -23,7 +23,7 @@ return [
     ],
     'transaction' => [
         'class'       => 'Transação',
-        'type'        => 'Tipo',
+        'kind'        => 'Tipo',
         'amount'      => 'Valor',
         'source'      => 'Origem',
         'destination' => 'Destino',

@@ -4,6 +4,7 @@
 namespace App\Http\DTOs;
 
 
+use App\Helpers\Translate;
 use App\Http\Requests\SaveExpense;
 use Carbon\Carbon;
 use Cknow\Money\Money;
@@ -42,9 +43,9 @@ class ExpenseData extends DataTransferObject
     public static function fromRequest(SaveExpense $request)
     {
         return new self([
-            'amount'      => (int)Money::parseByDecimal($request->input('amount'), 'USD')->getAmount(),
-            'fine'        => (int)Money::parseByDecimal($request->input('fine'), 'USD')->getAmount(),
-            'discount'    => (int)Money::parseByDecimal($request->input('discount'), 'USD')->getAmount(),
+            'amount'      => Translate::moneyToInt($request->input('amount')),
+            'fine'        => Translate::moneyToInt($request->input('fine')),
+            'discount'    => Translate::moneyToInt($request->input('discount')),
             'description' => $request->input('description'),
             'due_date'    => new Carbon($request->input('due_date')),
             'issue_date'  => new Carbon($request->input('issue_date')),

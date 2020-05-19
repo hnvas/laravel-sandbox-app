@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use App\Models\Types\AccountType;
+use App\Models\Kinds\AccountKind;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Account extends Model
@@ -13,7 +14,7 @@ class Account extends Model
     protected $fillable = [
         'name',
         'balance',
-        'type',
+        'kind',
         'owner',
         'owner_id'
     ];
@@ -38,19 +39,11 @@ class Account extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function sourceTransactions(): MorphMany
+    public function transactions(): HasMany
     {
-        return $this->morphMany(Transaction::class, 'source');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
-     */
-    public function destinationTransactions(): MorphMany
-    {
-        return $this->morphMany(Transaction::class, 'destination');
+        return $this->hasMany(Transaction::class, 'account_id');
     }
 
     /*
@@ -60,9 +53,9 @@ class Account extends Model
     */
 
     /**
-     * @param \App\Models\Types\AccountType $type
+     * @param \App\Models\Kinds\AccountKind $type
      */
-    public function setTypeAttribute(AccountType $type)
+    public function setKindAttribute(AccountKind $type): void
     {
         $this->attributes['type'] = $type->getValue();
     }
@@ -70,7 +63,7 @@ class Account extends Model
     /**
      * @param \App\Models\User $owner
      */
-    public function setOwnerAttribute(User $owner)
+    public function setOwnerAttribute(User $owner): void
     {
         $this->owner()->associate($owner);
     }
@@ -84,12 +77,12 @@ class Account extends Model
     /**
      * @param $value
      *
-     * @return \App\Models\Types\AccountType
+     * @return \App\Models\Kinds\AccountKind
      */
-    public function getTypeAttribute($value): AccountType
+    public function getKindAttribute($value): ?AccountKind
     {
-        if ($value) {
-            return new AccountType($value);
-        }
+        if (empty($value)) return null;
+
+        return new AccountKind($value);
     }
 }

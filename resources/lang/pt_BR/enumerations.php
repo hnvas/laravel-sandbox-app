@@ -1,16 +1,15 @@
 <?php
 return [
-    'account_type'     => [
+    'account_kind'     => [
         'class'    => 'Tipo de conta',
         'checking' => 'Corrente',
         'saving'   => 'Poupança',
         'wallet'   => 'Carteira'
     ],
-    'transaction_type' => [
+    'transaction_kind' => [
         'class'    => 'Tipo de transação',
-        'withdraw' => 'Saque',
-        'deposit'  => 'Depósito',
+        'revenue'  => 'Renda',
         'transfer' => 'Transferência',
-        'rollback' => 'Estorno'
+        'payment'  => 'Pagamento'
     ]
 ];

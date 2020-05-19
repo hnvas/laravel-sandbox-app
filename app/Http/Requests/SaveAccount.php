@@ -26,7 +26,7 @@ class SaveAccount extends FormRequest
         return [
             'name'          => 'required|string',
             'balance'       => 'required|numeric',
-            'type'          => 'required',
+            'kind'          => 'required',
             'owner_id'      => 'required'
         ];
     }

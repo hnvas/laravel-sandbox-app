@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "calebporzio/parental": "0.9",
         "cknow/laravel-money": "~3.8",
         "doctrine/dbal": "^2.10",
         "fideloper/proxy": "^4.0",
