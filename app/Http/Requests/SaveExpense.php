@@ -32,14 +32,6 @@ class SaveExpense extends FormRequest
             'tags'        => 'required|array'
         ];
 
-        if (!empty($this->fine)) {
-            $rules['fine'] = 'numeric';
-        }
-
-        if (!empty($this->discount)) {
-            $rules['discount'] = 'numeric';
-        }
-
         return $rules;
     }
 }

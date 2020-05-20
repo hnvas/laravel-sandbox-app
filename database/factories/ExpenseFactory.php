@@ -2,6 +2,7 @@
 
 use App\Models\Expense;
 use App\Models\Tag;
+use Carbon\Carbon;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
 
@@ -9,11 +10,9 @@ use Illuminate\Database\Eloquent\Factory;
 $factory->define(Expense::class, function (Faker $faker) {
     return [
         'amount'      => $faker->randomNumber(5),
-        'fine'        => $faker->randomNumber(5),
-        'discount'    => $faker->randomNumber(5),
         'description' => 'Expense test creation',
-        'due_date'    => new \Carbon\Carbon($faker->date()),
-        'issue_date'  => new \Carbon\Carbon($faker->date()),
+        'due_date'    => new Carbon($faker->date()),
+        'issue_date'  => new Carbon($faker->date()),
         'tags'        => ['Test']
     ];
 });

@@ -16,12 +16,6 @@ class ExpenseData extends DataTransferObject
     /** @var int */
     public $amount;
 
-    /** @var int */
-    public $fine;
-
-    /** @var int */
-    public $discount;
-
     /** @var string */
     public $description;
 
@@ -44,8 +38,6 @@ class ExpenseData extends DataTransferObject
     {
         return new self([
             'amount'      => Translate::moneyToInt($request->input('amount')),
-            'fine'        => Translate::moneyToInt($request->input('fine')),
-            'discount'    => Translate::moneyToInt($request->input('discount')),
             'description' => $request->input('description'),
             'due_date'    => new Carbon($request->input('due_date')),
             'issue_date'  => new Carbon($request->input('issue_date')),

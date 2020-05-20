@@ -12,8 +12,6 @@ class Expense extends Model
 
     protected $fillable = [
         'amount',
-        'fine',
-        'discount',
         'description',
         'due_date',
         'issue_date',
