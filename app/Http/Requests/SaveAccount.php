@@ -24,7 +24,7 @@ class SaveAccount extends FormRequest
     public function rules()
     {
         return [
-            'name'          => 'required|string',
+            'name'          => 'required|filled|string',
             'balance'       => 'required|numeric',
             'kind'          => 'required',
             'owner_id'      => 'required'

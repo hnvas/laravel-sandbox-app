@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Admin;
+namespace Tests\Feature\App\Http\Controllers\Admin;
 
 use App\Models\Expense;
 use App\Models\User;

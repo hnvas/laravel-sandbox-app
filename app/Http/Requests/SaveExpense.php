@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use Cknow\Money\Money;
 use Illuminate\Foundation\Http\FormRequest;
 
 class SaveExpense extends FormRequest
@@ -24,14 +23,12 @@ class SaveExpense extends FormRequest
      */
     public function rules()
     {
-        $rules = [
+        return [
             'description' => 'required|filled|string',
             'amount'      => 'required|numeric|min:1',
             'due_date'    => 'required|date',
             'issue_date'  => 'required|date',
             'tags'        => 'required|array'
         ];
-
-        return $rules;
     }
 }
