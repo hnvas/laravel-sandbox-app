@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-12">
         @include('components.fields.text', [
-                 'label'      => 'Descrição',
+                 'label'      => $expense::translate()->description,
                  'name'       => 'description',
                  'attributes' => ['required' => true]])
     </div>
@@ -9,19 +9,19 @@
 <div class="row">
     <div class="col-md-4">
         @include('components.fields.date', [
-                 'label'      => 'Data da cobrança',
+                 'label'      => $expense::translate()->issue_date,
                  'name'       => 'issue_date',
                  'attributes' => ['required' => true]])
     </div>
     <div class="col-md-4">
         @include('components.fields.date', [
-                 'label'      => 'Data de vencimento',
+                 'label'      => $expense::translate()->due_date,
                  'name'       => 'due_date',
                  'attributes' => ['required' => true]])
     </div>
     <div class="col-md-4">
         @include('components.fields.number', [
-                 'label'      => 'Valor',
+                 'label'      => $expense::translate()->amount,
                  'value'      => old('value', money($expense->amount)->formatByDecimal()),
                  'name'       => 'amount',
                  'attributes' => ['required' => true]])
@@ -30,7 +30,7 @@
 <div class="row">
     <div class="col-md-12">
         @include('components.fields.select', [
-             'label' => 'Selecione uma ou mais tags',
+             'label' => $expense::translate()->tags,
              'name' => 'tags',
              'multiple' => true,
              'collection' => $tags->pluck('name', 'name'),

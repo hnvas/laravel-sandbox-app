@@ -4,10 +4,9 @@
 namespace App\Http\DTOs;
 
 
-use App\Helpers\Translate;
+use App\Helpers\Transform;
 use App\Http\Requests\SaveExpense;
 use Carbon\Carbon;
-use Cknow\Money\Money;
 use Spatie\DataTransferObject\DataTransferObject;
 
 class ExpenseData extends DataTransferObject
@@ -37,7 +36,7 @@ class ExpenseData extends DataTransferObject
     public static function fromRequest(SaveExpense $request)
     {
         return new self([
-            'amount'      => Translate::moneyToInt($request->input('amount')),
+            'amount'      => Transform::moneyToInt($request->input('amount')),
             'description' => $request->input('description'),
             'due_date'    => new Carbon($request->input('due_date')),
             'issue_date'  => new Carbon($request->input('issue_date')),

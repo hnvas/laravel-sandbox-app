@@ -78,4 +78,12 @@ class AccountTest extends TestCase
         $this->assertInstanceOf(AccountKind::class, $account->type);
         $this->assertEquals(AccountKind::CHECKING, $account->type->getValue());
     }
+
+    public function testTranslation()
+    {
+        $this->assertEquals(
+            (object) trans('models.account'),
+            Account::translate()
+        );
+    }
 }

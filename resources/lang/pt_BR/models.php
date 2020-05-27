@@ -14,8 +14,7 @@ return [
         'class'       => 'Despesa',
         'description' => 'Descrição',
         'amount'      => 'Valor',
-        'discount'    => 'Desconto',
-        'fine'        => 'Multa',
+        'tags'        => 'Tags',
         'due_date'    => 'Vencimento',
         'issue_date'  => 'Emissão',
         'created_at'  => 'Criação',
@@ -30,14 +29,14 @@ return [
         'created_at'  => 'Criação',
         'updated_at'  => 'Edição'
     ],
-    'user' => [
-        'class' => 'Usuário',
-        'name'  => 'Nome',
-        'email' => 'E-mail',
-        'verified_at' => 'Verificado',
-        'password' => 'Senha',
+    'user'        => [
+        'class'                 => 'Usuário',
+        'name'                  => 'Nome',
+        'email'                 => 'E-mail',
+        'verified_at'           => 'Verificado',
+        'password'              => 'Senha',
         'password_confirmation' => 'Confimação de senha',
-        'created_at'  => 'Criação',
-        'updated_at'  => 'Edição'
+        'created_at'            => 'Criação',
+        'updated_at'            => 'Edição'
     ]
 ];

@@ -3,11 +3,10 @@
 
 namespace App\Http\DTOs;
 
-use App\Helpers\Translate;
+use App\Helpers\Transform;
 use App\Http\Requests\SaveAccount;
 use App\Models\Kinds\AccountKind;
 use App\Models\User;
-use Cknow\Money\Money;
 use Spatie\DataTransferObject\DataTransferObject;
 
 class AccountData extends DataTransferObject
@@ -33,10 +32,10 @@ class AccountData extends DataTransferObject
     public static function fromRequest(SaveAccount $request): self
     {
         return new self([
-            'name'          => $request->input('name'),
-            'balance'       => Translate::moneyToInt($request->input('balance')),
-            'kind'          => new AccountKind(strtolower($request->input('kind'))),
-            'owner'         => User::find($request->input('owner_id'))
+            'name'    => $request->input('name'),
+            'balance' => Transform::moneyToInt($request->input('balance')),
+            'kind'    => new AccountKind(strtolower($request->input('kind'))),
+            'owner'   => User::find($request->input('owner_id'))
         ]);
     }
 }

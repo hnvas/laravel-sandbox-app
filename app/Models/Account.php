@@ -2,14 +2,16 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\TranslateModel;
 use App\Models\Kinds\AccountKind;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Account extends Model
 {
+
+    use TranslateModel;
 
     protected $fillable = [
         'name',

@@ -99,7 +99,7 @@ class SaveExpenseTest extends RequestTestCase
                 'passed' => true,
                 'data'   => [
                     'description' => $faker->paragraph(),
-                    'amount'      => (string)$faker->randomFloat(2),
+                    'amount'      => (string)$faker->randomFloat(2, 1),
                     'due_date'    => $faker->date(),
                     'issue_date'  => $faker->date(),
                     'tags'        => [$faker->word()]

@@ -45,4 +45,12 @@ class ExpenseTest extends TestCase
 
         $this->assertInstanceOf(Carbon::class, $expense->issue_date);
     }
+
+    public function testTranslation()
+    {
+        $this->assertEquals(
+            (object) trans('models.expense'),
+            Expense::translate()
+        );
+    }
 }
