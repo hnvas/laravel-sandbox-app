@@ -6,18 +6,18 @@
             <div class="col-md-12">
                 @component('components.card-container', [
                             'return'   => 'dashboard.index',
-                            'title'    => 'Contas',
-                            'category' => 'Listagem de contas'])
+                            'title'    => trans_choice('models.account.class', 2),
+                            'category' => trans('models.account.categories.index')])
                     @slot('body')
                         <div class="table-responsive">
                             <table class="table">
                                 <thead class="text-primary">
                                     <tr>
                                         <th>#</th>
-                                        <th>{{ trans('models.account.name') }}</th>
-                                        <th>{{ trans('models.account.balance') }}</th>
-                                        <th>{{ trans('models.account.special_limit') }}</th>
-                                        <th>{{ trans('models.account.owner') }}</th>
+                                        <th>{{ trans('models.account.attributes.name') }}</th>
+                                        <th>{{ trans('models.account.attributes.balance') }}</th>
+                                        <th>{{ trans('models.account.attributes.special_limit') }}</th>
+                                        <th>{{ trans('models.account.attributes.owner') }}</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -30,26 +30,14 @@
                                             <td>{{ money($record->special_limit) }}</td>
                                             <td>{{ $record->owner->name }}</td>
                                             <td class="td-actions text-right">
-                                                <a href="{{ route('account.edit', $record->id) }}"
-                                                   rel="tooltip"
-                                                   class="btn btn-info btn-link"
-                                                   data-original-title="Editar"
-                                                   title="Editar">
-                                                    <i class="material-icons">edit</i>
-                                                </a>
-                                                <a href="{{ route('account.destroy', $record->id) }}"
-                                                   rel="tooltip"
-                                                   class="btn btn-danger btn-link delete-resource"
-                                                   data-original-title="Excluir"
-                                                   title="Excluir">
-                                                    <i class="material-icons">close</i>
-                                                </a>
+                                                @include('components.buttons.edit', ['route' => route('account.edit', $record->id)])
+                                                @include('components.buttons.destroy', ['route' => route('account.destroy', $record->id)])
                                             </td>
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="5">Nenhum registro
-                                                encontrado
+                                            <td colspan="6">
+                                                {{ trans('messages.not_found') }}
                                             </td>
                                         </tr>
                                     @endforelse

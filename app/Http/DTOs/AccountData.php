@@ -34,7 +34,7 @@ class AccountData extends DataTransferObject
         return new self([
             'name'    => $request->input('name'),
             'balance' => Transform::moneyToInt($request->input('balance')),
-            'kind'    => new AccountKind(strtolower($request->input('kind'))),
+            'kind'    => new AccountKind($request->input('kind')),
             'owner'   => User::find($request->input('owner_id'))
         ]);
     }

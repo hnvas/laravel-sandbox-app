@@ -7,8 +7,8 @@
                 {{ Form::model($user, ['route' => ['user.update', $user->id], 'method' => 'put']) }}
                     @component('components.card-container', [
                                 'return'   => 'user.index',
-                                'title'    => 'Usuários',
-                                'category' => 'Editar usuário'])
+                                'title'    => trans_choice('models.user.class', 2),
+                                'category' => trans('models.user.categories.update')])
                         @slot('body')
                             @include('admin.user._form')
                         @endslot

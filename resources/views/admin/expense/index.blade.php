@@ -6,17 +6,17 @@
             <div class="col-md-12">
                 @component('components.card-container', [
                             'return'   => 'dashboard.index',
-                            'title'    => 'Despesas',
-                            'category' => 'Listagem de despesas'])
+                            'title'    => trans_choice('models.expense.class', 2),
+                            'category' => trans('models.expense.categories.index')])
                     @slot('body')
                         <div class="table-responsive">
                             <table class="table">
                                 <thead class="text-primary">
                                     <tr>
                                         <th>#</th>
-                                        <th>{{ trans('models.expense.description') }}</th>
-                                        <th>{{ trans('models.expense.amount') }}</th>
-                                        <th>{{ trans('models.expense.issue_date') }}</th>
+                                        <th>{{ trans('models.expense.attributes.description') }}</th>
+                                        <th>{{ trans('models.expense.attributes.amount') }}</th>
+                                        <th>{{ trans('models.expense.attributes.issue_date') }}</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -28,20 +28,8 @@
                                             <td>{{ money($record->amount) }}</td>
                                             <td>{{ $record->issue_date->format('d/m/Y') }}</td>
                                             <td class="td-actions text-right">
-                                                <a href="{{ route('expense.edit', $record->id) }}"
-                                                   rel="tooltip"
-                                                   class="btn btn-info btn-link"
-                                                   data-original-title="Editar"
-                                                   title="Editar">
-                                                    <i class="material-icons">edit</i>
-                                                </a>
-                                                <a href="{{ route('expense.destroy', $record->id) }}"
-                                                   rel="tooltip"
-                                                   class="btn btn-danger btn-link delete-resource"
-                                                   data-original-title="Excluir"
-                                                   title="Excluir">
-                                                    <i class="material-icons">close</i>
-                                                </a>
+                                                @include('components.buttons.edit', ['route' => route('expense.edit', $record->id)])
+                                                @include('components.buttons.destroy', ['route' => route('expense.destroy', $record->id)])
                                             </td>
                                         </tr>
                                     @empty

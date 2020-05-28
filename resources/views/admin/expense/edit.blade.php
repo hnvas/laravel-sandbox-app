@@ -7,8 +7,8 @@
                 {{ Form::model($expense, ['route' => ['expense.update', $expense->id], 'method' => 'put']) }}
                     @component('components.card-container', [
                                 'return'   => 'expense.index',
-                                'title'    => 'Despesas',
-                                'category' => 'Editar despesa'])
+                                'title'    => trans_choice('models.expense.attributes.class', 2),
+                                'category' => trans('models.expense.categories.edit')])
                         @slot('body')
                             @include('admin.expense._form')
                         @endslot

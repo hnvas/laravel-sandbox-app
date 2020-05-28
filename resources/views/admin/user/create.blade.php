@@ -7,8 +7,8 @@
                 {{ Form::model($user, ['route' => 'user.store']) }}
                 @component('components.card-container', [
                             'return'   => 'user.index',
-                            'title'    => 'Despesas',
-                            'category' => 'Nova despesa'])
+                            'title'    => trans_choice('models.user.class', 2),
+                            'category' => trans('models.user.categories.new')])
                     @slot('body')
                         @include('admin.user._form')
                     @endslot

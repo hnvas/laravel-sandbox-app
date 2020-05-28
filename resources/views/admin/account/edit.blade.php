@@ -7,13 +7,14 @@
                 {{ Form::model($account, ['route' => ['account.update', $account->id], 'method' => 'put']) }}
                     @component('components.card-container', [
                                 'return'   => 'account.index',
-                                'title'    => 'Contas',
-                                'category' => 'Editar conta'])
+                                'title'    => trans_choice('models.account.class', 2),
+                                'category' => trans('models.account.categories.edit')])
                         @slot('body')
                             @include('admin.account._form')
                         @endslot
                         @slot('footer')
-                            @include('components.buttons.success', ['title' => 'Enviar'])
+                                @include('components.buttons.success', [
+                                         'title' => trans('components.buttons.submit')])
                         @endslot
                     @endcomponent
                 {!! Form::close() !!}

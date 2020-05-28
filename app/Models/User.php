@@ -2,14 +2,13 @@
 
 namespace App\Models;
 
-use App\Models\Concerns\TranslateModel;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable, TranslateModel;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.

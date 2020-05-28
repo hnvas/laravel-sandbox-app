@@ -7,8 +7,8 @@
                 {{ Form::model($expense, ['route' => 'expense.store']) }}
                 @component('components.card-container', [
                             'return'   => 'expense.index',
-                            'title'    => 'Despesas',
-                            'category' => 'Nova despesa'])
+                            'title'    => trans_choice('models.expense.attributes.class', 2),
+                            'category' => trans('models.expense.categories.new')])
                     @slot('body')
                         @include('admin.expense._form')
                     @endslot

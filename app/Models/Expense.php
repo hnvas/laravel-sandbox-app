@@ -2,14 +2,13 @@
 
 namespace App\Models;
 
-use App\Models\Concerns\TranslateModel;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Tags\HasTags;
 
 class Expense extends Model
 {
-    use HasTags, TranslateModel;
+    use HasTags;
 
     protected $fillable = [
         'amount',

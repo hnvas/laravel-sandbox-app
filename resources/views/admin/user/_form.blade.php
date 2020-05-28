@@ -1,13 +1,13 @@
 <div class="row">
     <div class="col-md-6 col-sm-12">
         @include('components.fields.text', [
-                 'label'      => 'Nome',
+                 'label'      => trans('models.user.attributes.name'),
                  'name'       => 'name',
                  'attributes' => ['required' => true]])
     </div>
     <div class="col-md-6 col-sm-12">
         @include('components.fields.email', [
-                 'label'      => 'Email',
+                 'label'      => trans('models.user.attributes.email'),
                  'name'       => 'email',
                  'attributes' => ['required' => true]])
     </div>
@@ -15,12 +15,12 @@
 <div class="row">
     <div class="col-md-6 col-sm-12">
         @include('components.fields.password', [
-                 'label'      => 'Senha',
+                 'label'      => trans('models.user.attributes.password'),
                  'name'       => 'password'])
     </div>
     <div class="col-md-6 col-sm-12">
         @include('components.fields.password', [
-                 'label'      => 'Confirmação de senha',
+                 'label'      => trans('models.user.attributes.password_confirmation'),
                  'name'       => 'password_confirmation'])
     </div>
 </div>
