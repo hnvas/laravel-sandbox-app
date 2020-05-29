@@ -7,9 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * Class Account
+ * @package App\Models
+ */
 class Account extends Model
 {
 
+    /**
+     * @var string[]
+     */
     protected $fillable = [
         'name',
         'balance',
@@ -18,9 +25,12 @@ class Account extends Model
         'owner_id'
     ];
 
-    protected $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime'
+    /**
+     * @var string[]
+     */
+    protected $dates = [
+        'created_at',
+        'updated_at'
     ];
 
     /*
