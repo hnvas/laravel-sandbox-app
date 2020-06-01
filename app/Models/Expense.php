@@ -6,10 +6,22 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Tags\HasTags;
 
+/**
+ * Class Expense
+ * @package App\Models
+ * @property int $amount
+ * @property string $description
+ * @property \Carbon\Carbon $due_date
+ * @property \Carbon\Carbon $issue_date
+ * @property \App\Models\Tag[] $tags
+ */
 class Expense extends Model
 {
     use HasTags;
 
+    /**
+     * @var string[]
+     */
     protected $fillable = [
         'amount',
         'description',
@@ -18,6 +30,9 @@ class Expense extends Model
         'tags'
     ];
 
+    /**
+     * @var string[]
+     */
     protected $dates = [
         'due_date',
         'issue_date',

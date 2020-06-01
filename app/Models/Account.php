@@ -5,11 +5,15 @@ namespace App\Models;
 use App\Models\Kinds\AccountKind;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Class Account
  * @package App\Models
+ * @property string $name
+ * @property int $balance
+ * @property \App\Models\Kinds\AccountKind|null $kind
+ * @property \App\Models\User $owner
+ * @property int $owner_id
  */
 class Account extends Model
 {
@@ -45,14 +49,6 @@ class Account extends Model
     public function owner(): BelongsTo
     {
         return $this->belongsTo(User::class, 'owner_id');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function transactions(): HasMany
-    {
-        return $this->hasMany(Transaction::class, 'account_id');
     }
 
     /*

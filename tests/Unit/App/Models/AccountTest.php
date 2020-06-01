@@ -44,7 +44,7 @@ class AccountTest extends TestCase
         );
     }
 
-    public function testAccountHasManyTransactions()
+/*    public function testAccountHasManyTransactions()
     {
         $account = new Account();
 
@@ -57,9 +57,9 @@ class AccountTest extends TestCase
             'App\Models\Transaction',
             $account->transactions()->getModel()
         );
-    }
+    }*/
 
-    public function testSetAccountOwnerAttribute()
+    public function testSetOwnerAttribute()
     {
         $account = new Account();
         $account->owner = new User();
@@ -72,10 +72,12 @@ class AccountTest extends TestCase
 
     public function testSetTypeAttribute()
     {
-        $account = new Account();
-        $account->type = new AccountKind(AccountKind::CHECKING);
+        $kindValue = AccountKind::CHECKING;
 
-        $this->assertInstanceOf(AccountKind::class, $account->type);
-        $this->assertEquals(AccountKind::CHECKING, $account->type->getValue());
+        $account = new Account();
+        $account->kind = new AccountKind($kindValue);
+
+        $this->assertInstanceOf(AccountKind::class, $account->kind);
+        $this->assertEquals(AccountKind::CHECKING, $account->kind->getValue());
     }
 }
