@@ -3,9 +3,9 @@ return [
     'account'     => [
         'class'      => 'Conta|Contas',
         'categories' => [
-            'new'    => 'Nova conta',
-            'update' => 'Atualizar conta',
-            'index'  => 'Listagem de contas'
+            'new'   => 'Nova conta',
+            'edit'  => 'Atualizar conta',
+            'index' => 'Listagem de contas'
         ],
         'attributes' => [
             'name'          => 'Nome',
@@ -14,15 +14,15 @@ return [
             'kind'          => 'Tipo',
             'owner'         => 'Titular',
             'created_at'    => 'Criação',
-            'updated_at'    => 'Edição'
+            'editd_at'      => 'Edição'
         ]
     ],
     'expense'     => [
         'class'      => 'Despesa|Despesas',
         'categories' => [
-            'new'    => 'Nova despesa',
-            'update' => 'Atualizar despesa',
-            'index'  => 'Listagem de despesas'
+            'new'   => 'Nova despesa',
+            'edit'  => 'Atualizar despesa',
+            'index' => 'Listagem de despesas'
         ],
         'attributes' => [
             'description' => 'Descrição',
@@ -31,7 +31,7 @@ return [
             'due_date'    => 'Vencimento',
             'issue_date'  => 'Emissão',
             'created_at'  => 'Criação',
-            'updated_at'  => 'Edição'
+            'editd_at'    => 'Edição'
         ]
     ],
     'transaction' => [
@@ -42,15 +42,15 @@ return [
             'source'      => 'Origem',
             'destination' => 'Destino',
             'created_at'  => 'Criação',
-            'updated_at'  => 'Edição'
+            'editd_at'    => 'Edição'
         ]
     ],
     'user'        => [
         'class'      => 'Usuário|Usuários',
         'categories' => [
-            'new'    => 'Novo usuário',
-            'update' => 'Atualizar usuário',
-            'index'  => 'Listagem de usuários'
+            'new'   => 'Novo usuário',
+            'edit'  => 'Atualizar usuário',
+            'index' => 'Listagem de usuários'
         ],
         'attributes' => [
             'name'                  => 'Nome',
@@ -59,7 +59,7 @@ return [
             'password'              => 'Senha',
             'password_confirmation' => 'Confimação de senha',
             'created_at'            => 'Criação',
-            'updated_at'            => 'Edição'
+            'editd_at'              => 'Edição'
         ]
     ]
 ];
