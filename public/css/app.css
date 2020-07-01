@@ -25921,6 +25921,14 @@ span.flatpickr-weekday {
   background: linear-gradient(60deg, #26a69a, #00897b) !important;
 }
 
+.bootstrap-select > select.mobile-device:focus + .dropdown-toggle,
+.bootstrap-select .dropdown-toggle:focus {
+  /* outline: thin dotted #333333 !important; */
+  /* outline: 5px auto -webkit-focus-ring-color !important; */
+  outline: none !important;
+  outline-offset: -2px;
+}
+
 .pagination .page-item .page-link {
   border-radius: 25px;
   color: #00897b;

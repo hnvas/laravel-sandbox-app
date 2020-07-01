@@ -23,6 +23,14 @@
   background: linear-gradient(60deg, $teal-400, $teal-600) !important;
 }
 
+// Bootstrap dropdown button override
+.bootstrap-select > select.mobile-device:focus + .dropdown-toggle, .bootstrap-select .dropdown-toggle:focus {
+  /* outline: thin dotted #333333 !important; */
+  /* outline: 5px auto -webkit-focus-ring-color !important; */
+  outline: none !important;
+  outline-offset: -2px;
+}
+
 // Bootstrap pagination style override
 .pagination .page-item {
 
