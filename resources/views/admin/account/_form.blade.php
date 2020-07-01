@@ -27,7 +27,7 @@
              'label'      => trans('models.account.attributes.kind'),
              'name'       => 'kind',
              'collection' => trans('enumerations.account_kind.kinds'),
-             'selected'   => old('kind', !$account->kind ?: $account->kind->getKey()),
+             'selected'   => old('kind', !$account->kind ?: $account->kind->getValue()),
              'attributes' => ['required' => true]])
     </div>
 </div>
