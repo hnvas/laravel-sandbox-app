@@ -17,6 +17,7 @@ class CreatePaymentMethodsTable extends Migration
             $table->bigIncrements('id');
             $table->string('type');
             $table->integer('limit');
+            $table->integer('current_limit');
             $table->unsignedBigInteger('account_id')->index();
             $table->foreign('account_id')->references('id')
                                          ->on('accounts')

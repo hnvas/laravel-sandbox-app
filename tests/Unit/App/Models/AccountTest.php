@@ -78,6 +78,6 @@ class AccountTest extends TestCase
         $account->kind = new AccountKind($kindValue);
 
         $this->assertInstanceOf(AccountKind::class, $account->kind);
-        $this->assertEquals(AccountKind::CHECKING, $account->kind->getValue());
+        $this->assertEquals($kindValue, $account->kind->getValue());
     }
 }

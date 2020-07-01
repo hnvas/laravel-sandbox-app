@@ -90,4 +90,20 @@ class Account extends Model
 
         return new AccountKind($value);
     }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Methods
+    |--------------------------------------------------------------------------
+    */
+
+    public function incrementBalance(int $value)
+    {
+        $this->balance += $value;
+    }
+
+    public function reduceBalance($value)
+    {
+        $this->balance -= $value;
+    }
 }

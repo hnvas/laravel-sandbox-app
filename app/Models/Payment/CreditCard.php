@@ -10,6 +10,7 @@ use Parental\HasParent;
  * @property \App\Models\Account $account
  * @property int $account_id
  * @property int $limit
+ * @property int $current_limit
  * @property-read string $type
  */
 class CreditCard extends PaymentMethod
@@ -24,4 +25,27 @@ class CreditCard extends PaymentMethod
         'account_id',
         'limit'
     ];
+
+    /*
+    |--------------------------------------------------------------------------
+    | Methods
+    |--------------------------------------------------------------------------
+    */
+
+    /**
+     * @param $value
+     */
+    public function reduceCurrentLimit(int $value)
+    {
+        $this->current_limit -= $value;
+    }
+
+    /**
+     * @param $value
+     */
+    public function incrementCurrentLimit(int $value)
+    {
+        $this->current_limit += $value;
+    }
+
 }
